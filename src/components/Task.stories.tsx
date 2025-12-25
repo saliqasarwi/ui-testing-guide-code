@@ -17,11 +17,6 @@ export default {
 * to learn how to use render functions.
 */
 export const Default = {
-  render: (args) => (
-    <ul>
-      <Task {...args} />
-    </ul>
-  ),
   args: {
     task: {
       id: '1',
@@ -32,11 +27,6 @@ export const Default = {
 };
 
 export const Pinned = {
-  render: (args) => (
-    <ul>
-      <Task {...args} />
-    </ul>
-  ),
   args: {
     task: {
       id: '2',
@@ -47,11 +37,6 @@ export const Pinned = {
 };
 
 export const Archived = {
-  render: (args) => (
-    <ul>
-      <Task {...args} />
-    </ul>
-  ),
   args: {
     task: {
       id: '3',
@@ -64,11 +49,7 @@ export const Archived = {
 const longTitleString = `This task's name is absurdly large. In fact, I think if I keep going I might end up with content overflow. What will happen? The star that represents a pinned task could have text overlapping. The text could cut-off abruptly when it reaches the star. I hope not!`;
 
 export const LongTitle = {
-  render: (args) => (
-    <ul>
-      <Task {...args} />
-    </ul>
-  ),
+
   args: {
     task: {
       id: '4',

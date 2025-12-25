@@ -1,7 +1,7 @@
 
 import TaskList from './TaskList';
 
-import * as TaskStories from './Task.stories';
+import * as TaskStories from './Task.stories.tsx';
 
 export default {
   component: TaskList,
@@ -29,30 +29,5 @@ export const Default = {
         title: 'Draft monthly blog to customers',
       },
     ],
-  },
-};
-
-export const WithPinnedTasks = {
-  args: {
-    tasks: [
-      {
-        id: '6',
-        title: 'Draft monthly blog to customers',
-        state: 'TASK_PINNED',
-      },
-      ...Default.args.tasks.slice(0, 5),
-    ],
-  },
-};
-export const Loading = {
-  args: {
-    tasks: [],
-    loading: true,
-  },
-};
-export const Empty = {
-  args: {
-    ...Loading.args,
-    loading: false,
   },
 };
