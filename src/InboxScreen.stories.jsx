@@ -4,7 +4,7 @@ import { http, HttpResponse } from 'msw';
 import InboxScreen from './InboxScreen';
 
 import { Default as TaskListDefault } from './components/TaskList.stories';
-import { expect, userEvent, findByRole, within } from '@storybook/test';
+import { expect, userEvent, findByRole, within } from 'storybook/test';
 
 
 export default {
@@ -88,5 +88,23 @@ export const EditTask = {
     await expect(taskInput.value).toBe(
       'Fix bug in input error state and disabled state'
     );
+  },
+};
+export const DeleteTask = {
+  parameters: {
+    ...Default.parameters,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const getTask = (id) => canvas.findByRole('listitem', { name: id });
+
+    const itemToDelete = await getTask('task-1');
+    const deleteButton = await findByRole(itemToDelete, 'button', {
+      name: 'delete',
+    });
+
+    // Click the delete button
+    await userEvent.click(deleteButton);
+    await expect(canvas.getAllByRole('listitem').length).toBe(5);
   },
 };
